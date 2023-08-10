@@ -24,26 +24,33 @@ async function fetchPokemonDetails(pokemon) {
   }
 }
 
+// ... (previous code)
+
 function displayPokemon(pokemon) {
-  const pokemonDiv = document.createElement('div');
-  pokemonDiv.classList.add('pokemon');
-
-  const formattedName = pokemon.name.replace(/-/g, '');
-
-  const pokemonLink = document.createElement('a');
-  pokemonLink.href = `https://projectpokemon.org/images/normal-sprite/${formattedName.toLowerCase()}.gif`;
-  pokemonLink.target = '_blank'; 
-  const pokemonImage = document.createElement('img');
-  pokemonImage.src = `https://projectpokemon.org/images/normal-sprite/${formattedName.toLowerCase()}.gif`;
-  pokemonImage.alt = pokemon.name;
-  pokemonLink.appendChild(pokemonImage);
-  pokemonDiv.appendChild(pokemonLink);
-
-  const pokemonName = document.createElement('p');
-  pokemonName.textContent = pokemon.name;
-  pokemonDiv.appendChild(pokemonName);
-
-  pokedex.appendChild(pokemonDiv);
-}
+    const pokemonDiv = document.createElement('div');
+    pokemonDiv.classList.add('pokemon');
+  
+    // Create an <a> element with an <img> child for the Pokémon image
+    const pokemonLink = document.createElement('a');
+    pokemonLink.href = `https://projectpokemon.org/images/normal-sprite/${pokemon.name.toLowerCase()}.gif`;
+    pokemonLink.target = '_blank'; // Open link in a new tab
+    const pokemonImage = document.createElement('img');
+  
+    // Set the image source
+    pokemonImage.src = `https://projectpokemon.org/images/normal-sprite/${pokemon.name.toLowerCase()}.gif`;
+  
+    // Append the image to the link
+    pokemonLink.appendChild(pokemonImage);
+  
+    // Append the link to the Pokémon container
+    pokemonDiv.appendChild(pokemonLink);
+  
+    // Create a <p> element for the Pokémon name at the bottom
+    const pokemonName = document.createElement('p');
+    pokemonName.textContent = pokemon.name;
+    pokemonDiv.appendChild(pokemonName);
+  
+    pokedex.appendChild(pokemonDiv);
+  }
 
 fetchPokemon();
