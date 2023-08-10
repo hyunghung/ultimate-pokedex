@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  .pokedex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .pokemon {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 150px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;
+  }
+  
+  .pokemon img {
+    max-width: 100px; 
+  }
+  
+  .pokemon p {
+    margin-top: auto;
+  }
+  
