@@ -40,3 +40,18 @@ body {
     padding: 5px;
   }
   
+  
+.login-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 25px; 
+}
+
+
+nav {
+  display: flexbox;
+  flex-direction:row;
+  padding: 20px;
+}
+
