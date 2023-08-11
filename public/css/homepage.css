@@ -1,0 +1,84 @@
+
+.login-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    }
+  
+  .register-button {
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    padding: 5px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: black;
+    background-color: white;
+    width: 250px;
+    margin-left: 10px;
+    border-radius: 10px;
+ 
+  }
+
+
+  /*set links in a row*/
+  .nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  /* Style each navigation list item */
+  .nav-links li {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    width: 100%;
+    
+  }
+  
+  /* Style the navigation links */
+  .nav-links li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    
+  }
+  
+  /* Add background color on hover */
+  .nav-links li a:hover {
+    background-color: red;
+    position: absolute;
+    padding-left: 85px;
+    white-space: nowrap;
+    width: 65px;
+  }
+
+
+  footer {
+    text-align: center;
+  }
+
+
+  .plus-button {
+    align-self: flex-start;
+    margin: 25px;
+    background-color: lightgray;
+    height: 150px;
+    margin-right: 68%;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    background-color: lightgray;
+  }
+
