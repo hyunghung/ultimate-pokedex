@@ -1,5 +1,7 @@
+//-------------------------------- LIST OF POKEMON ---------------------------------
 const pokedex = document.querySelector('.pokedex');
 
+let pokemonDetails = []; // Create an empty array to be used for search function 
 async function fetchPokemon() {
   try {
     const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=890'); // Waiting to fetch data from api
@@ -79,37 +81,82 @@ function processPokemonName(pokemonName) {
   function displayPokemon(pokemon, index) {
     const pokemonDiv = document.createElement('div');
     pokemonDiv.classList.add('pokemon');
-    
-    const displayName = pokemon.name.replace(/-/g, ' ');
-    const nameForUrl = displayName.toLowerCase().replace(/ /g, '_');
-    const modName = processPokemonName(nameForUrl);
-    // Process the nameForUrl through processPokemonName one more time
-    let imageUrl;
 
-    if (modName === 'sirfetchd') {
-      imageUrl = 'https://projectpokemon.org/images/sprites-models/swsh-normal-sprites/sirfetchd.gif';
-    } else {
-      imageUrl = `https://projectpokemon.org/images/normal-sprite/${modName}.gif`;
-    }
+  const displayName = pokemon.name.replace(/-/g, ' ');
+  const nameForUrl = displayName.toLowerCase().replace(/ /g, '_');
+  const modName = processPokemonName(nameForUrl);
 
-    // Create an <a> element with an <img> child for the Pokémon image
-    const pokemonLink = document.createElement('a');
-    pokemonLink.href = imageUrl;
-    pokemonLink.target = '_blank'; // Open link in a new tab
-    const pokemonImage = document.createElement('img');
-    pokemonImage.src = imageUrl;
-    pokemonLink.appendChild(pokemonImage);
-    pokemonDiv.appendChild(pokemonLink);
-    
-    // Create a <p> element for the Pokémon name and index at the bottom
-    const pokemonInfo = document.createElement('p');
-    const paddedIndex = String(index + 1).padStart(3, '0'); // Pad index with zeros, manually adding their pokedex number
-    pokemonInfo.textContent = `#${paddedIndex} ${modName.replace(/\b\w/g, c => c.toUpperCase())}`;
-    pokemonDiv.appendChild(pokemonInfo);
-    
-    pokedex.appendChild(pokemonDiv);
+  let imageUrl;
+  if (modName === 'sirfetchd') {
+    imageUrl = 'https://projectpokemon.org/images/sprites-models/swsh-normal-sprites/sirfetchd.gif';
+  } else {
+    imageUrl = `https://projectpokemon.org/images/normal-sprite/${modName}.gif`;
+  }
+
+  // Create an <a> element for the Pokémon card
+  const pokemonCardLink = document.createElement('a');
+  pokemonCardLink.href = `pokemon_stats.html?name=${modName}`; // Connects it to the pokemon_stats.html page
+  pokemonCardLink.classList.add('pokemon-card-link');
+
+  // Create a <div> element for the Pokémon card content
+  const pokemonCard = document.createElement('div');
+  pokemonCard.classList.add('pokemon-card');
+
+  // Create an gif element for the Pokémon image
+  const pokemonImage = document.createElement('img');
+  pokemonImage.src = imageUrl;
+  pokemonCard.appendChild(pokemonImage);
+
+  // Create a <p> element for the Pokémon name and index
+  const pokemonInfo = document.createElement('p');
+  const paddedIndex = String(index + 1).padStart(3, '0');
+  pokemonInfo.textContent = `#${paddedIndex} ${modName.replace(/\b\w/g, c => c.toUpperCase())}`;
+  pokemonCard.appendChild(pokemonInfo);
+
+  // Append the card content to the <a> element
+  pokemonCardLink.appendChild(pokemonCard);
+
+  // Append the <a> element to the pokedex
+  pokemonDiv.appendChild(pokemonCardLink);
+  pokedex.appendChild(pokemonDiv);
 }
 
   
   fetchPokemon();
   
+//---------------------------- SEARCH FUNCTION ----------------------------
+
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+
+// Function to filter and display Pokémon based on search input
+function searchPokemon(query) {
+  const searchTerm = query.toLowerCase();
+  const filteredPokemon = pokemonDetails.filter(pokemon => {
+    return pokemon.name.includes(searchTerm);
+  });
+
+  pokedex.innerHTML = ''; // Clear the pokedex container
+
+  filteredPokemon.forEach((pokemon, index) => {
+    displayPokemon(pokemon, index);
+  });
+}
+
+// Event listener for the search button
+searchButton.addEventListener('click', () => {
+  const searchTerm = searchInput.value.trim();
+  if (searchTerm) {
+    searchPokemon(searchTerm);
+  }
+});
+
+// Event listener for pressing Enter key in the search input field
+searchInput.addEventListener('keyup', event => {
+  if (event.key === 'Enter') {
+    const searchTerm = searchInput.value.trim();
+    if (searchTerm) {
+      searchPokemon(searchTerm);
+    }
+  }
+});
