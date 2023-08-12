@@ -6,7 +6,9 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background-color:blue;
+   background-image: url(/public//images//images.jpg);
+   background-size: cover;
+   
   }
 
 
@@ -64,8 +66,8 @@ body {
   .box {
     width: 150px;
     height: 150px;
-    background-color: #e0e0e0;
-    border: 1px solid #ccc;
+    background-color: transparent;
+    border: 4px solid #ffffff;
     margin: 10px;
     display: flex;
     align-items: center;
@@ -75,13 +77,13 @@ body {
     color:black;
     text-decoration:solid;
     size:50px;
-    font-size: large;
-    font-family:Georgia, 'Times New Roman', Times, serif ;
+    font-size: 40px;
+    
   }
 
   h2 {
     font-size: 55px;
-    color:yellow;
+    color:rgb(0, 0, 0);
     text-shadow:  #000000;
     
   }
