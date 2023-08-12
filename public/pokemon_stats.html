@@ -4,15 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokémon Stats</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./css/poke_stats.css">
+
+  <!-- Load the Handlebars library using a CDN link -->
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
 </head>
 <body>
   <h1>Pokémon Stats</h1>
   <div class="pokemon-details">
     <img id="pokemon-image" src="" alt="Pokémon Image">
     <h2 id="pokemon-name"></h2>
-    <div id="pokemon-stats"></div>
+    <div id="pokemon-types" class="pokemon-types"></div>
+    <div id="pokemon-stats" class="pokemon-stats"></div>
+    <div id="pokemon-moves" class="pokemon-moves"></div>
+
+    <div id="evolution-chain">
+      <h2>Evolution Chain</h2>
+      <ul id="evolution-list"></ul>
+    </div>
+    
   </div>
-  <script src="pokemon_stats.js"></script>
+  <script src="./js/pokemon_stats.js"></script>
 </body>
 </html>

@@ -55,10 +55,6 @@
   /* Add background color on hover */
   .nav-links li a:hover {
     background-color: red;
-    position: absolute;
-    padding-left: 85px;
-    white-space: nowrap;
-    width: 65px;
   }
 
 

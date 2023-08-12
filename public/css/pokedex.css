@@ -21,7 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* Adjust alignment */
+  justify-content: space-between; 
   text-align: center;
   background-color: #fff;
   background-image: url('../images/pokeball-icon.png');
@@ -32,12 +32,12 @@ body {
 
 .pokemon-card-link {
   display: flex;
-  flex-direction: column; /* Align children vertically */
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
-  text-decoration: none; /* Remove default underline */
+  text-decoration: none; 
 }
 
 .pokemon-card {
@@ -60,6 +60,6 @@ body {
   width: 100%;
   text-align: center;
   position: absolute;
-  bottom: 0; /* Position at the bottom of the card */
+  bottom: 0; 
   box-sizing: border-box;
 }

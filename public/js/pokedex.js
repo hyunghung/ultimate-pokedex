@@ -95,7 +95,7 @@ function processPokemonName(pokemonName) {
 
   // Create an <a> element for the Pokémon card
   const pokemonCardLink = document.createElement('a');
-  pokemonCardLink.href = `pokemon_stats.html?name=${modName}`; // Connects it to the pokemon_stats.html page
+  pokemonCardLink.href = `pokemon_stats.html?name=${modName}&index=${index}`; // Connects it to the pokemon_stats.html page
   pokemonCardLink.classList.add('pokemon-card-link');
 
   // Create a <div> element for the Pokémon card content
