@@ -2,7 +2,10 @@ const router = require('express').Router();
 const path = require('path');
 
 router.get('/', (req, res) => {
-  const loggedIn = req.session ? req.session.loggedIn : false;
+  res.render('layouts/main'); 
+});
+
+router.get('/homepage', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/homepage.html'));
 });
 
@@ -12,7 +15,8 @@ router.get('/pokedex/:id', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  res.render('login');
+  const loggedIn = req.session.loggedIn || false;
+  res.render('login', { layout: false, loggedIn }); 
 });
 
 module.exports = router;
