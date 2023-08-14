@@ -70,34 +70,5 @@ async function displayPokemonStats(pokemon, pokemonId) {
 
   pokemonMoves.appendChild(movesElement);
   
-try {
-    const evolutionChainResponse = await fetch(pokemon.species.url);
-    const evolutionChainData = await evolutionChainResponse.json();
-    const evolutionChain = evolutionChainData.evolution_chain;
-
-    // Create an <ul> element for the evolution chain and display it
-    const evolutionListElement = document.createElement('ul');
-    evolutionListElement.classList.add('evolution-list');
-    displayEvolutionChain(evolutionChain, evolutionListElement);
-    pokemonStats.appendChild(evolutionListElement);
-  } catch (error) {
-    console.error('Error fetching evolution chain:', error);
-  }
 }
-
-function displayEvolutionChain(evolutionStage, parentList) {
-  const listItem = document.createElement('li');
-  listItem.textContent = evolutionStage.species.name;
-
-  if (evolutionStage.evolves_to.length > 0) {
-    const childList = document.createElement('ul');
-    listItem.appendChild(childList);
-    evolutionStage.evolves_to.forEach(childStage => {
-      displayEvolutionStage(childStage, childList);
-    });
-  }
-
-  parentList.appendChild(listItem);
-}
-
 

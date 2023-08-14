@@ -2,15 +2,13 @@
 const pokedex = document.querySelector('.pokedex');
 
 let pokemonDetails = []; // Create an empty array to be used for search function 
-async function fetchPokemon() {
+
+async function fetchAndRenderPokemon() {
   try {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=890'); // Waiting to fetch data from api
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=890');
     const data = await response.json();
-    const pokemonList = data.results;
-
-    const pokemonDetails = await Promise.all(pokemonList.map(fetchPokemonDetails));
+    pokemonDetails = await Promise.all(data.results.map(fetchPokemonDetails));
     pokemonDetails.forEach(displayPokemon);
-
   } catch (error) {
     console.error('Error fetching Pokémon:', error);
   }
@@ -121,42 +119,49 @@ function processPokemonName(pokemonName) {
   pokedex.appendChild(pokemonDiv);
 }
 
-  
-  fetchPokemon();
-  
+    
 //---------------------------- SEARCH FUNCTION ----------------------------
 
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
+const pokemonCardTemplateSource = document.getElementById('pokemon-card-template').innerHTML;
+const pokemonCardTemplate = Handlebars.compile(pokemonCardTemplateSource);
 
-// Function to filter and display Pokémon based on search input
-function searchPokemon(query) {
-  const searchTerm = query.toLowerCase();
+// Modify the searchPokemon function to search by partial name
+function searchPokemon(searchTerm) {
+  // Filter pokemonDetails based on the search term
   const filteredPokemon = pokemonDetails.filter(pokemon => {
-    return pokemon.name.includes(searchTerm);
+    const name = pokemon.name.toLowerCase();
+    return name.includes(searchTerm);
   });
 
-  pokedex.innerHTML = ''; // Clear the pokedex container
+  // Clear existing content in the pokedex
+  pokedex.innerHTML = '';
 
+  // Render the filtered Pokemon cards
   filteredPokemon.forEach((pokemon, index) => {
     displayPokemon(pokemon, index);
   });
 }
 
-// Event listener for the search button
-searchButton.addEventListener('click', () => {
-  const searchTerm = searchInput.value.trim();
+// Event listener for search input
+searchInput.addEventListener('input', () => {
+  const searchTerm = searchInput.value.trim().toLowerCase();
   if (searchTerm) {
     searchPokemon(searchTerm);
+  } else {
+    pokedex.innerHTML = ''; // Clear existing content in the pokedex
+    fetchAndRenderPokemon(); // Render the full Pokedex
   }
 });
 
-// Event listener for pressing Enter key in the search input field
-searchInput.addEventListener('keyup', event => {
-  if (event.key === 'Enter') {
-    const searchTerm = searchInput.value.trim();
-    if (searchTerm) {
-      searchPokemon(searchTerm);
-    }
-  }
+// Initialize the page
+document.addEventListener('DOMContentLoaded', () => {
+  fetchAndRenderPokemon();
 });
+
+
+
+
+
+
