@@ -201,20 +201,3 @@ body {
     border-radius: 4px;
     cursor: pointer;
   }
-  
-  #evolution-chain {
-    margin-top: 16px;
-  }
-  
-  #evolution-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  #evolution-list li {
-    margin: 4px 0;
-  }
-  
-  #evolution-list ul {
-    margin-left: 16px;
-  }
