@@ -1,84 +1,235 @@
 
-.login-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 20px;
-    }
-  
-  .register-button {
-    position: absolute;
-    top: 55px;
-    right: 15px;
-    padding: 5px;
+  .hero {
+    background-color: white; 
+    background-size: cover;
+    margin-top: 50px;
+    width: 40px;
+
   }
   
+  /* Main Ultimate Pokedex title styling */
   h1 {
-    text-align: center;
-    color: black;
-    background-color: white;
+    color: white;
+    margin-left: 0px;
     width: 250px;
-    margin-left: 10px;
-    border-radius: 10px;
+ 
  
   }
+  
 
-
-  /*set links in a row*/
+  /* Links are now displayed left to right */
   .nav-links {
-    list-style: none;
+    list-style: circle;
     display: flex;
-    justify-content: center;
+    align-items: flex-start;
     margin: 0;
     padding: 0;
+    text-decoration: none;
+    margin-top: 50px;
     
   }
   
-  /* Style each navigation list item */
+  /* Background for Nav bar */
   .nav-links li {
     margin: 0;
-    padding: 0;
+    padding: 0px;
     background-color: white;
     width: 100%;
     
   }
   
-  /* Style the navigation links */
+  
+  /* Nav bar text coloring */
   .nav-links li a {
     display: block;
     padding: 10px;
-    text-decoration: none;
     color: black;
     
   }
   
-  /* Add background color on hover */
+ 
+  /* Hovering over nav bar */
   .nav-links li a:hover {
-    background-color: red;
-    position: absolute;
-    padding-left: 85px;
-    white-space: nowrap;
-    width: 65px;
+    background-color: lightcoral;
   }
 
 
+  
   footer {
     text-align: center;
+    background-color: beige;
   }
 
-
+/*AKA New Team Button */
   .plus-button {
+    background-image: url("../images/card-deck.png");
+    background-size:contain;
+    background-repeat: no-repeat;
     align-self: flex-start;
-    margin: 25px;
-    background-color: lightgray;
-    height: 150px;
-    margin-right: 68%;
+    text-align: center;
+    color: black;
+    text-size-adjust: 250px;
+    margin: 55px;
+    height: 225px;
+    width: 175px;
+    margin-right: 75%;
+    display: left;
+    margin-top: 50px;
+    padding-top: 50px;
+    font-weight: bold;
+
   }
 
+  
+  /* Overall/Main background */
   body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
-    background-color: lightgray;
+    /* googled this color */
+    background-image: url("../images/pokeball-3.png");
+    background-size: contain;
   }
 
+  /*Pokedex */
+  .Img1 {
+    display: center;
+    margin-inline: 10px auto;
+    height: 200px;
+    width: 200px;
+    margin-top: 550px;
+    
+  }
+
+  .Img2 {
+    display: block;
+    margin-left: 1213px;
+    margin-top: 80px;
+    height: 50px;
+    width: 50px;
+  }
+
+  .Img3 {
+    display: block;
+    margin: left;
+    margin-top: 0px;
+    height: 50px;
+    width: 50px;
+  }
+
+.login-button {
+  align-items: center;
+  background-color: red;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  top: 25px;
+  right: 15px;
+  padding: 15px;
+}
+
+.login-button:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.login-button:hover:after {
+  transform: translate(0, 0);
+}
+
+.login-button:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.login-button:hover {
+  outline: 0;
+}
+
+
+.img4 {
+  display: block;
+  margin-left: 25px;
+  margin-top: 0px;
+  height: 75px;
+  width: 215px;
+}
+
+.register-button {
+  align-items: center;
+  background-color: yellow;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  top: 95px;
+  right: 15px;
+  padding: 15px;
+}
+
+.register-button:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.register-button:hover:after {
+  transform: translate(0, 0);
+}
+
+.register-button:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.register-button:hover {
+  outline: 0;
+}
