@@ -6,16 +6,16 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background-color: rgb(228, 228, 43);
+    background-color:blue;
   }
 
 
   .card {
-    border: 2px solid #333;
+    border: 2px solid #000000;
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 25px;
     width: 400px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 10px rgba(7, 7, 7, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,12 +23,15 @@ body {
     width: 60%;
     margin-top: 10%;
     font-size: x-large;
+    color: rgb(255, 0, 0);
+    background-color: #7e7b7b;
   }
 
   .icon-group,
   .icon-group2 {
     display: flex;
     margin-bottom: 50px; 
+    
   }
 
   .icon1,
@@ -37,9 +40,11 @@ body {
   .icon4,
   .icon5,
   .icon6 {
-    font-size: 35px;
+    width: 40px;
+    height: 40px;
     margin: 0 150px;
-    padding-top: 25px;
+    padding-top: 25px;  
+    image-rendering:optimizeQuality;
   }
 
   .teams-section {
@@ -65,6 +70,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    cursor:pointer;
     padding-right: 15%;
+    color:black;
+    text-decoration:solid;
+    size:50px;
+    font-size: large;
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+  }
+
+  h2 {
+    font-size: 55px;
+    color:yellow;
+    text-shadow:  #000000;
+    
   }

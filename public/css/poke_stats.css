@@ -1,0 +1,220 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Header Styles */
+  .header {
+    background-color: #f44336;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  /* Pokémon Card Styles */
+  .pokemon-card-link {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .pokemon-card {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+  }
+  
+  .pokemon-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .pokemon-image {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  
+  .pokemon-info {
+    text-align: center;
+    margin-top: 8px;
+  }
+  /* Styles for type badges */
+.types {
+    display: flex;
+  }
+  
+  .type {
+    display: inline-block;
+    padding: 4px 8px;
+    margin-right: 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  /* Define colors for each type */
+  .normal { background-color: #A8A77A; color: white; }
+  .fire { background-color: #EE8130; color: white; }
+  .water { background-color: #6390F0; color: white; }
+  .electric { background-color: #F7D02C; color: black; }
+  .grass { background-color: #7AC74C; color: white; }
+  .ice { background-color: #96D9D6; color: black; }
+  .fighting { background-color: #C22E28; color: white; }
+  .poison { background-color: #A33EA1; color: white; }
+  .ground { background-color: #E2BF65; color: black; }
+  .flying { background-color: #A98FF3; color: white; }
+  .psychic { background-color: #F95587; color: white; }
+  .bug { background-color: #A6B91A; color: white; }
+  .rock { background-color: #B6A136; color: white; }
+  .ghost { background-color: #735797; color: white; }
+  .dragon { background-color: #6F35FC; color: white; }
+  .dark { background-color: #705746; color: white; }
+  .steel { background-color: #B7B7CE; color: black; }
+  .fairy { background-color: #D685AD; color: black; }
+  
+  /* Styles for base stats */
+  .base-stats {
+    margin-top: 16px;
+  }
+  
+  .base-stats p {
+    margin: 4px;
+  }
+  
+  /* Styles for move list */
+  .moves {
+    margin-top: 16px;
+  }
+  
+  .moves p {
+    margin: 4px;
+  }
+  
+  /* Pokémon Stats Page Styles */
+  .pokemon-stats-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  
+  .pokemon-info-container {
+    flex: 1;
+    padding: 16px;
+  }
+  
+  #pokemon-image {
+    max-width: 200px;
+    max-height: 200px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  #pokemon-name {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 8px;
+  }
+  
+  .types {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  
+  .type {
+    display: inline-block;
+    padding: 4px 8px;
+    margin-right: 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+/* Style for each move item */
+.move-item {
+    margin: 4px;
+    padding: 4px;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  /* Base Stats Styles */
+  .base-stats {
+    margin-top: 16px;
+    border: 1px solid #ccc;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .base-stats p {
+    margin: 4px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Move List Styles */
+  .moves {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
+    gap: 8px;
+    border: 1px solid #ccc;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .moves p {
+    margin: 4px;
+  }
+  
+  /* Search Styles */
+  .search-container {
+    text-align: center;
+    margin-top: 16px;
+  }
+  
+  #searchInput {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  #searchButton {
+    padding: 8px 16px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #evolution-chain {
+    margin-top: 16px;
+  }
+  
+  #evolution-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #evolution-list li {
+    margin: 4px 0;
+  }
+  
+  #evolution-list ul {
+    margin-left: 16px;
+  }
