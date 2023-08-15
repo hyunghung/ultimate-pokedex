@@ -26,7 +26,7 @@ body {
     width: 60%;
     margin-top: 10%;
     font-size: x-large;
-    color: rgb(255, 0, 0);
+    color: rgb(123, 0, 255);
     background-color: #f7b58c;
   }
 
@@ -91,3 +91,24 @@ body {
     text-shadow:  #000000;
     
   }
+
+  .search-bar {
+    display:none;
+    margin-top: 10px;
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+#pokemonInput {
+  width: 80%; /* Adjust the width of the input field */
+  padding: 8px; /* Adjust padding to create more space inside the input field */
+  font-size: 45px; /* Adjust font size */
+}
+
+#pokemonInput::placeholder {
+  font-size: 45px; /* Adjust placeholder font size */
+}
+
+button {
+  font-size: 30px; /* Adjust button font size */
+  padding-left: 25%;
+  padding-right: 25%;
+}
