@@ -1,31 +1,27 @@
-
-  .hero {
-    background-color: white; 
-    background-size: cover;
-    margin-top: 50px;
-    width: 40px;
-
-  }
   
   /* Main Ultimate Pokedex title styling */
-  h1 {
+  .abc {
+    background-image: url('../images/retro-wallper-2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width: 100%;
+    display: auto;
     color: white;
-    margin-left: 0px;
-    width: 250px;
- 
- 
+    height: 200px;
+    margin-bottom: 0px;
+    margin-top: 0px;
   }
-  
-
+ 
   /* Links are now displayed left to right */
   .nav-links {
     list-style: circle;
     display: flex;
     align-items: flex-start;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     text-decoration: none;
-    margin-top: 50px;
+    margin-top: 0px;
     
   }
   
@@ -53,13 +49,6 @@
     background-color: lightcoral;
   }
 
-
-  
-  footer {
-    text-align: center;
-    background-color: beige;
-  }
-
 /*AKA New Team Button */
   .plus-button {
     background-image: url("../images/card-deck.png");
@@ -67,17 +56,16 @@
     background-repeat: no-repeat;
     align-self: flex-start;
     text-align: center;
-    color: black;
+    color: white;
     text-size-adjust: 250px;
     margin: 55px;
     height: 225px;
     width: 175px;
     margin-right: 75%;
     display: left;
-    margin-top: 50px;
-    padding-top: 50px;
-    font-weight: bold;
-
+    margin-top: 0px;
+    padding-top: 155px;
+    font-weight: 800px;
   }
 
   
@@ -85,10 +73,11 @@
   body {
     font-family: Arial, sans-serif;
     text-align: center;
-    margin: 0;
-    /* googled this color */
     background-image: url("../images/pokeball-3.png");
     background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 0px;
+    margin-top: 0px;
   }
 
   /*Pokedex */
@@ -97,24 +86,7 @@
     margin-inline: 10px auto;
     height: 200px;
     width: 200px;
-    margin-top: 550px;
-    
-  }
-
-  .Img2 {
-    display: block;
-    margin-left: 1213px;
-    margin-top: 80px;
-    height: 50px;
-    width: 50px;
-  }
-
-  .Img3 {
-    display: block;
-    margin: left;
     margin-top: 0px;
-    height: 50px;
-    width: 50px;
   }
 
 .login-button {
@@ -138,7 +110,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  top: 25px;
+  top: 20px;
   right: 15px;
   padding: 15px;
 }
@@ -172,13 +144,7 @@
 }
 
 
-.img4 {
-  display: block;
-  margin-left: 25px;
-  margin-top: 0px;
-  height: 75px;
-  width: 215px;
-}
+
 
 .register-button {
   align-items: center;
@@ -232,4 +198,12 @@
 
 .register-button:hover {
   outline: 0;
+}
+
+footer {
+  text-align: center;
+  background-color: beige;
+  margin-top: 50px;
+  height: 100%;
+  background-size: cover;
 }

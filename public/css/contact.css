@@ -1,0 +1,134 @@
+body {
+    background-image: url("../images/pokeball-3.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    color: white;
+    font-size: 40px;
+}
+
+
+.Isai{
+    background-image: url("../images/blank-card-2.png");
+    background-repeat: no-repeat;
+    margin-top: 50px;
+    background-size: contain;
+    height: 300px;
+    margin-left: 10px;
+}
+
+.Isai a{
+    position: left;
+    margin-left: 30px;
+    font-size: 15px;
+    line-height: 15px;
+    color: white;
+    text-align: center;
+
+}
+
+.nav-links {
+    list-style: circle;
+    display: flex;
+    align-items: flex-start;
+    margin: 0px;
+    padding: 0;
+    text-decoration: none;
+    margin-top: 65px;
+    width: 100%;
+    
+  }
+  
+  /* Background for Nav bar */
+  .nav-links li {
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    width: 100%;
+    
+  }
+  
+  
+  /* Nav bar text coloring */
+  .nav-links li a {
+    display: block;
+    padding: 10px;
+    color: black;
+    
+  }
+  
+ 
+  /* Hovering over nav bar */
+  .nav-links li a:hover {
+    background-color: lightcoral;
+  } 
+
+  .Anthony{
+    background-image: url("../images/blank-card-2.png");
+    background-repeat: no-repeat;
+    margin-top: 20px;
+    background-size: contain;
+    height: 300px;
+    margin-left: 15px;
+}
+
+.Anthony a{
+    margin: 5px;
+    position: left;
+    margin-left: 30px;
+    font-size: 15px;
+    line-height: 15px;
+    color: white;
+    text-align: center;
+
+}
+
+.Frank{
+    background-image: url("../images/blank-card-2.png");
+    background-repeat: no-repeat;
+    margin-top: 20px;
+    background-size: contain;
+    height: 300px;
+    margin-left: 15px;
+}
+
+.Frank a{
+    margin: 5px;
+    position: left;
+    margin-left: 30px;
+    font-size: 15px;
+    line-height: 15px;
+    color: white;
+    text-align: center;
+
+}
+
+.Monet{
+    background-image: url("../images/blank-card-2.png");
+    background-repeat: no-repeat;
+    margin-top: 20px;
+    background-size: contain;
+    height: 300px;
+    margin-left: 15px;
+}
+
+.Monet a{
+    margin: 5px;
+    position: left;
+    margin-left: 30px;
+    font-size: 15px;
+    line-height: 15px;
+    color: white;
+    text-align: center;
+
+}
+
+p {
+    margin-top: 50px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+}
