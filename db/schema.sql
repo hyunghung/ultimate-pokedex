@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS pokedex_db;
+DROP DATABASE IF EXISTS user_db;
 
-CREATE DATABASE pokedex_db;
+CREATE DATABASE user_db;
