@@ -1,16 +1,25 @@
 const router = require('express').Router();
-const { User } = require('../../models/');
+const bcrypt = require('bcrypt');
+const { User, Team } = require('../../models');
 
-// CREATE new user
-router.post('/', async (req, res) => {
+// New user
+router.post('/signup', async (req, res) => {
   try {
-    const userData = await User.create(req.body);
+    const { username, email, password } = req.body;
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const userData = await User.create({
+      username,
+      email,
+      password: hashedPassword 
+    });
 
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      res.status(200).json(userData);
+      res.status(200).json({ user: userData, message: 'You are now signed up and logged in!' });
     });
   } catch (err) {
     res.status(400).json(err);
@@ -20,7 +29,9 @@ router.post('/', async (req, res) => {
 // Login
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+    const { email, password } = req.body;
+
+    const userData = await User.findOne({ where: { email } });
 
     if (!userData) {
       res
@@ -29,7 +40,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = await bcrypt.compare(password, userData.password);
 
     if (!validPassword) {
       res
@@ -41,10 +52,15 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
+
       res.json({ user: userData, message: 'You are now logged in!' });
     });
 
+    const teams = await Team.findAll({ where: { user_id: userData.id } });
+
+    req.session.teams = teams;
+
+    res.redirect('/homepage');
   } catch (err) {
     res.status(400).json(err);
   }
@@ -60,5 +76,14 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+router.post('/guest-data', (req, res) => {
+  const guestData = req.body.guestData;
+
+  req.session.guest_data = guestData;
+  
+  res.status(200).json({ message: 'Guest data saved' });
+});
+
 
 module.exports = router;

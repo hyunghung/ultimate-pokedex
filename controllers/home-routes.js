@@ -1,9 +1,16 @@
 const router = require('express').Router();
 const path = require('path');
 
+
 router.get('/', (req, res) => {
-  const loggedIn = req.session ? req.session.loggedIn : false;
-  res.sendFile(path.join(__dirname, '../public/homepage.html'));
+  res.render('layouts/main'); 
+});
+
+router.get('/homepage', (req, res) => {
+  const loggedIn = req.session.logged_in || false;
+  const savedTeams = req.session.teams || [];
+  const filePath = path.join(__dirname, '../public/homepage.html');
+  res.sendFile(filePath, { loggedIn, savedTeams });
 });
 
 router.get('/pokedex/:id', (req, res) => {
@@ -12,7 +19,8 @@ router.get('/pokedex/:id', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  res.render('login');
+  const loggedIn = req.session.loggedIn || false;
+  res.render('login', { layout: false, loggedIn }); 
 });
 
 module.exports = router;

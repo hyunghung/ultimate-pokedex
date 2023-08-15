@@ -9,16 +9,32 @@
   integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
   <link rel="stylesheet" href="css/homepage.css">
 </head>
-<div class="hero">
-  <h1>Ultimate Pokédex</h1>
-</div>
 
 
 <body>
+  <script>
+    //User for guests, those who dont want to log in
+    // Not sure if this will work since idk where to put this 
+    const guestData = {
+    };
   
+    fetch('/api/users/guest-data', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(guestData),
+    });
+  </script>
   
 
+<header>
+  <img class="abc">
 
+
+</header>  
+
+<body>
 <div>
   <nav>
     <ul class="nav-links">
@@ -32,16 +48,20 @@
   
    
 <div class="login-container">
-  <button class="login-button" role="button">Login</button> 
+  <button class="login-button" role="button" onclick="location.href='/login'">Login</button>
 </div>
+
 
 <div class="register-container">
   <button class="register-button">New User</button>
 </div>
 
- 
- <button class="plus-button">Create New Team +</button>
+<div class="plus-button">
+  <a href="new-team.html">Create New Team +</a>
+</div>
+
  <div class="background-grid"></div>
+ 
 
   
 </body>
@@ -50,23 +70,25 @@
 
 <img class="Img1" src="./images/pokedex.png" alt="Pokedex">
 
-
-
 <footer>
   <br>
-  
   <p>Instructions: </p> 
+
+  <P> Looking to create the ultimate team? You are going to need the Ultimate Pokedex.</P>
   <br>
-  <p>Are you looking to build the ultimate team?</p>
-  <p>Then you are going to need the Ultimate Pokédex</p>
-  <p>Create an account and get started on bringing your dream team to life within your favorite Pokemon game.</p>
-  <p>Choose from Pokemon across multiple generations and create teams.</p>
-  <p>Want to build a new team with Pokemon you might be unfamiliar with? 
-    Get paired with the perfect fit using our Pokemon User Test</p>
+  <p> For the new and expierienced Pokemon catcher. </p>
+  <p> Ultimate Pokedex is a user friendly, interactive tool to explore </p>
+  <p> Pokemon from across multiple generations, to design your dream team  </p>
+  <p> for your favorite Pokemon games. </p>
+  <p> Users can navigate th Ultimate Pokedex and find hundres of Pokemon they may not be familiar with</p>
+  <p> and compare stats of various characters before having to commit to any serious decisions within the game. </p>
+  <p> To begin bringing your dream team to life, simply create an account and start creating your ultimate team.</p>
+
+
     <br>
 
 </footer>
 
 
-<script src="/public/js/homepage.js"></script>
+<script src="/js/homepage.js"></script>
 </html>
