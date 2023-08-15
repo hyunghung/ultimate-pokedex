@@ -4,34 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Page</title>
-    <link rel="stylesheet" href="/public/css/new-team.css">
+    <link rel="stylesheet" href="/public/css/new-team.css">\
+    
 </head>
 <body>
     
     <section class="card">
         <h1 class="yourteam">Your new team</h1>
         <div class="icon-group">
-            <img class="icon1" src="/public/images/download.png"> 
+            <img class="icon1" src="/public/images/download.png">
             <img class="icon2" src="/public/images/download.png"> 
             <img class="icon3" src="/public/images/download.png"> 
           </div>
           <div class="icon-group2">
             <img class="icon4" src="/public/images/download.png"> 
             <img class="icon5" src="/public/images/download.png"> 
-            <img class="icon6" src="/public/images/download.png"> 
+           <img class="icon6" src="/public/images/download.png"> 
           </div>
+          <div id="pokemonNames" class="pokemon-names">
+            <!-- Pokémon names will be displayed here -->
+        </div>
         </section>
       
-     <section class="teams-section">
-
+     
+    <section class="teams-section">
       <h2> New Teams! </h2>
-
       <div class="box-list">
-        <div class="box" data-index="0">Create new team?</div>
-        
+          <div class="box" data-index="0" onclick="showSearchBar()">Create new team?</div>
+          <div id="searchBar" class="search-bar">
+              <input type="text" id="pokemonInput" placeholder="Enter Pokémon name">
+              <button onclick="addPokemonToCard()">Add Pokémon</button>
+          </div>
       </div>
-      </section>
+  </section>
       <script src="/public/js/new-team.js"></script>
+      
 </body>
 
-</html>
+</html> 
