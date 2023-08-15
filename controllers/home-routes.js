@@ -1,23 +1,22 @@
 const router = require('express').Router();
-const { user } = require('../models');
-const withAuth = require('../utils/auth');
+const path = require('path');
 
-router.get('/', withAuth, (req, res) => {
-  res.render('homepage', {
-    loggedIn: req.session.loggedIn,
-  });
+router.get('/', (req, res) => {
+  res.render('layouts/main'); 
 });
 
-
-router.get('/pokedex/:id', withAuth, async (req, res) => {
-
+router.get('/homepage', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/homepage.html'));
 });
 
-
-
-
-router.get('/login', withAuth, (req, res) => {
-  res.render('login');
+router.get('/pokedex/:id', (req, res) => {
+  const filePath = path.join(__dirname, '../public/pokedex.html');
+  res.sendFile(filePath);
 });
 
-module.exports = userController;
+router.get('/login', (req, res) => {
+  const loggedIn = req.session.loggedIn || false;
+  res.render('login', { layout: false, loggedIn }); 
+});
+
+module.exports = router;
