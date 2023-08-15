@@ -1,3 +1,4 @@
+
 // document.addEventListener("DOMContentLoaded", function() {
 //     const boxList = document.querySelectorAll(".box");
 //     const cardSection = document.querySelector(".card");
