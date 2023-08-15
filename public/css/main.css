@@ -12,6 +12,7 @@ header {
   background-color: #f8f8f8;
   padding: 20px;
   text-align: center;
+  background-image: url('/images/start.png');
 }
 
 /* Style the main content section */

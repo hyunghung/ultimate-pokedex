@@ -10,40 +10,43 @@
     
       <form class="form login-form" method="POST" action="/login">
         <div class="form-group">
-          <label for="email-login">email:</label>
-          <input class="form-input" type="text" id="email-login" name="email" />
+          <label for="email-login">Email:</label>
+          <input class="form-input" type="email" id="email-login" name="email" required />
         </div>
         <div class="form-group">
-          <label for="password-login">password:</label>
-          <input class="form-input" type="password" id="password-login" name="password" />
+          <label for="password-login">Password:</label>
+          <input class="form-input" type="password" id="password-login" name="password" required />
         </div>
         <div class="form-group">
-          <button class="btn btn-primary" type="submit">login</button>
+          <button class="btn btn-primary" type="submit">Login</button>
         </div>
       </form>
+
+      <p class="error-message" style="color: red;"></p>
     </div>
     <div class="col-md-6">
       <h2>Signup</h2>
     
       <form class="form signup-form">
         <div class="form-group">
-          <label for="name-signup">name:</label>
-          <input class="form-input" type="text" id="name-signup" />
+          <label for="name-signup">Name:</label>
+          <input class="form-input" type="text" id="name-signup" required />
         </div>
         <div class="form-group">
-          <label for="email-signup">email:</label>
-          <input class="form-input" type="text" id="email-signup" />
+          <label for="email-signup">Email:</label>
+          <input class="form-input" type="email" id="email-signup" required />
         </div>
         <div class="form-group">
-          <label for="password-signup">password:</label>
-          <input class="form-input" type="password" id="password-signup" />
+          <label for="password-signup">Password:</label>
+          <input class="form-input" type="password" id="password-signup" required />
         </div>
         <div class="form-group">
-          <button class="btn btn-primary" type="submit">signup</button>
+          <button class="btn btn-primary" type="submit">Signup</button>
         </div>
       </form>
     </div>
   </div>
 
+  <script src="/js/login.js"></script>
 </body>
 </html>

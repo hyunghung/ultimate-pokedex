@@ -15,7 +15,20 @@
 
 
 <body>
+  <script>
+    //User for guests, those who dont want to log in
+    // Not sure if this will work since idk where to put this 
+    const guestData = {
+    };
   
+    fetch('/api/users/guest-data', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(guestData),
+    });
+  </script>
   
 
 
@@ -69,5 +82,5 @@
 </footer>
 
 
-<script src="/public/js/homepage.js"></script>
+<script src="/js/homepage.js"></script>
 </html>

@@ -1,12 +1,16 @@
 const router = require('express').Router();
 const path = require('path');
 
+
 router.get('/', (req, res) => {
   res.render('layouts/main'); 
 });
 
 router.get('/homepage', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/homepage.html'));
+  const loggedIn = req.session.logged_in || false;
+  const savedTeams = req.session.teams || [];
+  const filePath = path.join(__dirname, '../public/homepage.html');
+  res.sendFile(filePath, { loggedIn, savedTeams });
 });
 
 router.get('/pokedex/:id', (req, res) => {
