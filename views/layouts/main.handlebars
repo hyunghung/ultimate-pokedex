@@ -14,16 +14,39 @@
    <header>
     <h1>Welcome to Ultimate Pokédex</h1>
     <p>Your one-stop solution for building and managing your dream Pokémon teams!</p>
-    <div class="center-container">
+    {{!-- <div class="center-container">
       <a href="/homepage" class="btn btn-primary">Start Here</a>
       <button class="login-button" role="button" onclick="location.href='/login'">Login</button>
+    </div> --}}
+        <div class="center-container">
+        <a href="pokedex.html" class="btn">Start</a>
     </div>
+
+    <div class="login-container">
+        <a href="/login" class="login-button" onclick="location.href='/login'">Login</a>
+      </div>
+
+      <script id="login-template" type="text/x-handlebars-template">
+        <h2>Login</h2>
+        <form class="form login-form" method="POST" action="/login">
+          <!-- Your login form fields here -->
+        </form>
+      </script>
+    
+      <!-- Handlebars Signup Form Template -->
+      <script id="signup-template" type="text/x-handlebars-template">
+        <h2>Signup</h2>
+        <form class="form signup-form">
+          <!-- Your signup form fields here -->
+        </form>
+      </script>
   </header>
   </main>
 
   <footer>
     <p>&copy; 2023 Ultimate Pokédex</p>
   </footer>
+   <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
 </body>
 
 </html>
