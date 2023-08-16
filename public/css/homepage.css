@@ -11,7 +11,7 @@ h1 {
   background-color: white;
   background-size: co;
   height: 175px;
-  width: 93%;
+  width: 100%;
   text-indent: 50px;
   text-align:left;
   border-radius: 5px;
@@ -30,7 +30,6 @@ h1 {
     margin: 0px;
     height: 175px;
     width: 100%;
-    
   }
  
   /* Links are now displayed left to right */
@@ -70,20 +69,21 @@ h1 {
 /*AKA New Team Button */
   .plus-button {
     background-image: url("../images/card-deck.png");
-    background-size:contain;
+    background-size: cover;
     background-repeat: no-repeat;
     align-self: flex-start;
-    text-align: center;
-    color: white;
+    text-align: bottom;
     text-size-adjust: 250px;
-    margin: 55px;
-    height: 225px;
-    width: 175px;
+    margin: 75px;
+    height: 300px;
+    width: 300px;
     margin-right: 75%;
-    display: left;
     margin-top: 0px;
-    padding-top: 155px;
+    padding-top: 295px;
     font-weight: 800px;
+    font-size: 28px;
+    padding-left: 40px;
+  
   }
 
   
@@ -106,119 +106,8 @@ h1 {
     margin-left: 45%;
     height: 200px;
     width: 200px;
-    margin-top: 450px;
+    margin-top: 550px;
   }
-
-.login-button {
-  align-items: center;
-  background-color: red;
-  border: 2px solid #111;
-  border-radius: 8px;
-  box-sizing: border-box;
-  color: #111;
-  cursor: pointer;
-  display: flex;
-  font-family: Inter,sans-serif;
-  font-size: 16px;
-  height: 48px;
-  justify-content: center;
-  line-height: 24px;
-  max-width: 100%;
-  position: absolute;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  top: 20px;
-  right: 15px;
-  padding: 15px;
-}
-
-.login-button:after {
-  background-color: #111;
-  border-radius: 8px;
-  content: "";
-  display: block;
-  height: 48px;
-  left: 0;
-  width: 100%;
-  position: absolute;
-  top: -2px;
-  transform: translate(8px, 8px);
-  transition: transform .2s ease-out;
-  z-index: -1;
-}
-
-.login-button:hover:after {
-  transform: translate(0, 0);
-}
-
-.login-button:active {
-  background-color: #ffdeda;
-  outline: 0;
-}
-
-.login-button:hover {
-  outline: 0;
-}
-
-
-
-
-.register-button {
-  align-items: center;
-  background-color: yellow;
-  border: 2px solid #111;
-  border-radius: 8px;
-  box-sizing: border-box;
-  color: #111;
-  cursor: pointer;
-  display: flex;
-  font-family: Inter,sans-serif;
-  font-size: 16px;
-  height: 48px;
-  justify-content: center;
-  line-height: 24px;
-  max-width: 100%;
-  position: absolute;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  top: 95px;
-  right: 15px;
-  padding: 15px;
-}
-
-.register-button:after {
-  background-color: #111;
-  border-radius: 8px;
-  content: "";
-  display: block;
-  height: 48px;
-  left: 0;
-  width: 100%;
-  position: absolute;
-  top: -2px;
-  transform: translate(8px, 8px);
-  transition: transform .2s ease-out;
-  z-index: -1;
-}
-
-.register-button:hover:after {
-  transform: translate(0, 0);
-}
-
-.register-button:active {
-  background-color: #ffdeda;
-  outline: 0;
-}
-
-.register-button:hover {
-  outline: 0;
-}
 
 footer {
   margin-bottom: 0px;

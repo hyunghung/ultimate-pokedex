@@ -4,12 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome page</title>
-    <link rel="stylesheet" href="/public/css/welcomepage.css">
+    <link rel="stylesheet" href="css/welcomepage.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 </head>
 <body>
     <header>Welcome to the Ultimate Pokedex</header>
     <div class="center-container">
-        <a href="homepage.html" class="btn">Start</a>
+        <a href="pokedex.html" class="btn">Start</a>
     </div>
+
+    <div class="login-container">
+        <a href="homepage.html" class="login-button" onclick="location.href='/login'">Login</a>
+      </div>
+
+      <script id="login-template" type="text/x-handlebars-template">
+        <h2>Login</h2>
+        <form class="form login-form" method="POST" action="/login">
+          <!-- Your login form fields here -->
+        </form>
+      </script>
+    
+      <!-- Handlebars Signup Form Template -->
+      <script id="signup-template" type="text/x-handlebars-template">
+        <h2>Signup</h2>
+        <form class="form signup-form">
+          <!-- Your signup form fields here -->
+        </form>
+      </script>
+    
+      <footer>
+        <p>&copy; 2023 Ultimate Pokédex</p>
+      </footer>
+    
+      <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
 </body>
-</html>
+</html> 
