@@ -20,5 +20,14 @@
     "mysql2": "^3.6.0",
     "path": "^0.12.7",
     "sequelize": "^6.32.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyunghung/ultimate-pokedex.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/hyunghung/ultimate-pokedex/issues"
+  },
+  "homepage": "https://github.com/hyunghung/ultimate-pokedex#readme"
 }

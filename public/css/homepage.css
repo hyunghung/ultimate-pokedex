@@ -1,16 +1,36 @@
-  
+h1 {
+  color:black;
+  padding-top: 40px;
+  margin: 0px;
+  margin-right: 0px;
+  top: 50px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-size: 80px;
+  font-weight: 700px;
+  background-color: white;
+  background-size: co;
+  height: 175px;
+  width: 93%;
+  text-indent: 50px;
+  text-align:left;
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
   /* Main Ultimate Pokedex title styling */
   .abc {
     background-image: url('../images/retro-wallper-2.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
-    width: 100%;
-    display: auto;
-    color: white;
-    height: 200px;
+    margin-top: 700px;
     margin-bottom: 0px;
-    margin-top: 0px;
+    margin: 0px;
+    height: 175px;
+    width: 100%;
+    
   }
  
   /* Links are now displayed left to right */
@@ -20,14 +40,12 @@
     align-items: flex-start;
     margin: 0px;
     padding: 0px;
-    text-decoration: none;
-    margin-top: 0px;
-    
+    text-decoration: none;    
   }
   
   /* Background for Nav bar */
   .nav-links li {
-    margin: 0;
+    margin: 0px;
     padding: 0px;
     background-color: white;
     width: 100%;
@@ -72,10 +90,11 @@
   /* Overall/Main background */
   body {
     font-family: Arial, sans-serif;
-    text-align: center;
     background-image: url("../images/pokeball-3.png");
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 0px;
     margin-bottom: 0px;
     margin-top: 0px;
   }
@@ -83,10 +102,11 @@
   /*Pokedex */
   .Img1 {
     display: center;
-    margin-inline: 10px auto;
+    margin-inline: auto;
+    margin-left: 45%;
     height: 200px;
     width: 200px;
-    margin-top: 0px;
+    margin-top: 450px;
   }
 
 .login-button {
@@ -201,9 +221,10 @@
 }
 
 footer {
+  margin-bottom: 0px;
+  margin-top: 100px;
   text-align: center;
   background-color: beige;
-  margin-top: 50px;
   height: 100%;
   background-size: cover;
 }
