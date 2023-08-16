@@ -1,17 +1,36 @@
+h1 {
+  color:black;
+  padding-top: 40px;
+  margin: 0px;
+  margin-right: 0px;
+  top: 50px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-size: 80px;
+  font-weight: 700px;
+  background-color: white;
+  background-size: co;
+  height: 175px;
+  width: 93%;
+  text-indent: 50px;
+  text-align:left;
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 
   /* Main Ultimate Pokedex title styling */
   .abc {
     background-image: url('../images/retro-wallper-2.png');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: bottom left;
-    width: 100%;
-    display: auto;
-    color: white;
-    height: 200px;
+    background-position: bottom;
+    margin-top: 700px;
     margin-bottom: 0px;
-    margin-top: 0px;
-    margin-left: 0px;
+    margin: 0px;
+    height: 175px;
+    width: 100%;
+    
   }
  
   /* Links are now displayed left to right */

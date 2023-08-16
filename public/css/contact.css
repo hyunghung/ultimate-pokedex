@@ -3,6 +3,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    margin: 0px;
 }
 
 h1 {
@@ -137,5 +138,9 @@ p {
 footer {
     background-color: beige;
     background-size: contain;
-
+    height: 250px;
+    text-align: center;
+    top: 50px;
+    color: black;
+    font-size: 30px;
 }
