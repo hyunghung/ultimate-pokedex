@@ -41,9 +41,23 @@ router.post('/teams', async (req, res) => {
 router.post('/teams/:teamId/pokemon', async (req, res) => {
   try {
     const teamId = req.params.teamId;
+    const pokemonName = req.body.pokemonName; 
+    
+    const team = await Team.findByPk(teamId, {
+      include: [Pokemon], 
+    });
+
+    if (!team) {
+      return res.status(404).json({ message: 'Team not found.' });
+    }
+
+    if (team.Pokemons.length >= 6) {
+      return res.status(400).json({ message: 'Team already has 6 Pokémon.' });
+    }
 
     const newPokemon = await Pokemon.create({
       team_id: teamId,
+      pokemon_name: pokemonName,
     });
 
     res.status(201).json(newPokemon);
