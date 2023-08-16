@@ -5,10 +5,10 @@ const { User, Team } = require('../../models');
 // New user
 router.post('/signup', async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { name, email, password } = req.body;
 
     const userData = await User.create({
-      username,
+      name,
       email,
       password
     });
@@ -20,7 +20,8 @@ router.post('/signup', async (req, res) => {
       res.status(200).json({ user: userData, message: 'You are now signed up and logged in!' });
     });
   } catch (err) {
-    res.status(500).json(err);
+    console.log(err);
+    res.status(402).json(err);
   }
 });
 
@@ -47,14 +48,13 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    req.session.save(() => {
+    req.session.save(async () => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-
-      const teams =  Team.findAll({ where: { user_id: userData.id } });
-
+    
+      const teams = await Team.findAll({ where: { user_id: userData.id } });
       req.session.teams = teams;
-  
+    
       res.redirect('/homepage');
     });
 
@@ -74,13 +74,6 @@ router.post('/logout', (req, res) => {
   }
 });
 
-router.post('/guest-data', (req, res) => {
-  const guestData = req.body.guestData;
-
-  req.session.guest_data = guestData;
-  
-  res.status(200).json({ message: 'Guest data saved' });
-});
 
 
 module.exports = router;
