@@ -7,12 +7,10 @@ router.post('/signup', async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-
     const userData = await User.create({
       username,
       email,
-      password: hashedPassword 
+      password
     });
 
     req.session.save(() => {
@@ -35,7 +33,7 @@ router.post('/login', async (req, res) => {
 
     if (!userData) {
       res
-        .status(400)
+        .status(500)
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
@@ -44,7 +42,7 @@ router.post('/login', async (req, res) => {
 
     if (!validPassword) {
       res
-        .status(400)
+        .status(500)
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
@@ -53,14 +51,13 @@ router.post('/login', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      res.json({ user: userData, message: 'You are now logged in!' });
+      const teams =  Team.findAll({ where: { user_id: userData.id } });
+
+      req.session.teams = teams;
+  
+      res.redirect('/homepage');
     });
 
-    const teams = await Team.findAll({ where: { user_id: userData.id } });
-
-    req.session.teams = teams;
-
-    res.redirect('/homepage');
   } catch (err) {
     res.status(400).json(err);
   }
