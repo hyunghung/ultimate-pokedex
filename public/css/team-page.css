@@ -27,61 +27,82 @@ body {
     background-color: #181010;
   }
 
-  .icon-group,
-  .icon-group2 {
-    display: flex;
-    margin-bottom: 50px; 
-    
-  }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  .icon1,
-  .icon2,
-  .icon3,
-  .icon4,
-  .icon5,
-  .icon6 {
-    width: 40px;
-    height: 40px;
-    margin: 0 150px;
-    padding-top: 25px;  
-    image-rendering:optimizeQuality;
-  }
+.box-list {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  .teams-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top:10%;
-  }
+.box {
+  width: 200px;
+  height: 100px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
 
-  .box-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-  }
+.box:hover {
+  background-color: #ddd;
+}
 
+/* Icon styles */
+.icon-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.icon-group2 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+select {
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 200px;
+}
+
+#add-pokemon-btn {
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
   .box {
-    width: 150px;
-    height: 150px;
-    background-color: #439180;
-    border: 1px solid #050000;
-    margin: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor:pointer;
-    padding-right: 15%;
-    color:black;
-    text-decoration:solid;
-    size:50px;
-    font-size: xx-large;
-    font-family:Georgia, 'Times New Roman', Times, serif ;
+    width: 100%;
+    margin: 10px 0;
   }
-
-  h2 {
-    font-size: 55px;
-    color:rgb(63, 75, 166);
-    text-shadow:  #000000;
-    
-  }
+}

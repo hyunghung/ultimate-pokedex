@@ -1,14 +1,55 @@
 document.addEventListener('DOMContentLoaded', async () => {
-  const teamsData = window.teamsData || [];
-
   const boxList = document.querySelector('.box-list');
+  const createNewTeamBtn = document.querySelector('#create-new-team-btn');
+  const teamsData = [];
 
-  teamsData.forEach((team, index) => {
-    const box = document.createElement('div');
-    box.classList.add('box');
-    box.dataset.index = index;
-    box.textContent = `Team ${index + 1}`;
-    boxList.appendChild(box);
+  function renderTeamBoxes() {
+    boxList.innerHTML = '';
+    teamsData.forEach((team, index) => {
+      const box = document.createElement('div');
+      box.classList.add('box');
+      box.dataset.index = index;
+      box.textContent = team.name;
+      boxList.appendChild(box);
+    });
+
+    attachBoxEventListeners();
+  }
+
+  function attachBoxEventListeners() {
+    const boxes = document.querySelectorAll('.box');
+    boxes.forEach(box => {
+      box.addEventListener('click', () => {
+        const teamIndex = parseInt(box.dataset.index, 10);
+        currentTeamIndex = teamIndex;
+        populateTeamMembers(teamIndex);
+      });
+    });
+  }
+
+  async function createNewTeam(name) {
+    try {
+      const response = await fetch('/teams', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name }),
+      });
+
+      const newTeam = await response.json();
+      teamsData.push(newTeam);
+      renderTeamBoxes();
+    } catch (error) {
+      console.error('Error creating new team:', error);
+    }
+  }
+
+  createNewTeamBtn.addEventListener('click', () => {
+    const teamName = prompt('Enter a name for your new team:');
+    if (teamName) {
+      createNewTeam(teamName);
+    }
   });
 
   async function fetchPokemonList() {
@@ -65,46 +106,39 @@ document.addEventListener('DOMContentLoaded', async () => {
   boxes.forEach(box => {
     box.addEventListener('click', () => {
       const teamIndex = parseInt(box.dataset.index, 10);
-      console.log('Clicked on team index:', teamIndex);
-      currentTeamIndex = teamIndex; // Set the current team index
+      currentTeamIndex = teamIndex;
       populateTeamMembers(teamIndex);
     });
   });
 
-let currentTeamIndex = 1; // Define and initialize currentTeamIndex here
+  let currentTeamIndex = -1;
 
-const addPokemonBtn = document.querySelector('#add-pokemon-btn');
-addPokemonBtn.addEventListener('click', async () => {
-  const selectedPokemonName = document.querySelector('#pokemon-select').value;
-  try {
-    const currentTeam = teamsData[currentTeamIndex];
+  const addPokemonBtn = document.querySelector('#add-pokemon-btn');
+  addPokemonBtn.addEventListener('click', async () => {
+    const selectedPokemonName = document.querySelector('#pokemon-select').value;
+    try {
+      const currentTeam = teamsData[currentTeamIndex];
+      if (!currentTeam) {
+        console.log('Invalid team index.');
+        return;
+      }
 
-    if (!currentTeam) {
-      console.log('Invalid team index.');
-      return;
+      const response = await fetch(`/teams/${currentTeam.id}/pokemon`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ pokemonName: selectedPokemonName }),
+      });
+
+      if (response.ok) {
+        console.log('Pokémon added to the team successfully.');
+        populateTeamMembers(currentTeamIndex);
+      } else {
+        console.error('Error adding Pokémon:', response.statusText);
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
     }
-
-    const selectedPokemon = await Pokemon.findOne({
-      where: {
-        pokemon_name: selectedPokemonName,
-        team_id: currentTeam.id,
-      },
-    });
-
-    if (selectedPokemon) {
-      console.log('This Pokémon is already in the team.');
-      return;
-    }
-
-    await Pokemon.create({
-      team_id: currentTeam.id,
-      pokemon_name: selectedPokemonName,
-    });
-
-    console.log('Pokémon added to the team successfully.');
-    populateTeamMembers(currentTeamIndex);
-  } catch (error) {
-    console.error('An error occurred:', error);
-  }
-});
+  });
 });

@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const { Team, Pokemon } = require('../../models');
 
-
-// Route to render team-page.html and display teams
 router.get('/teams', async (req, res) => {
   try {
     const teams = await Team.findAll({
@@ -10,35 +8,36 @@ router.get('/teams', async (req, res) => {
       include: [{ model: Pokemon }],
     });
 
-    res.render('team-page', { teamsData: teams }); 
+    res.json(teams);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-  
-// Create a new team
+
 router.post('/teams', async (req, res) => {
   try {
+    const { user_id, name } = req.body;
+
     const newTeam = await Team.create({
-      user_id: req.session.user_id,
+      user_id: user_id,
+      name: name,
     });
 
     res.status(201).json(newTeam);
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+    console.error('Error creating new team:', err);
+    res.status(500).json({ error: 'An error occurred while creating the team.' });
   }
 });
 
-// Add a Pokemon to a team
 router.post('/teams/:teamId/pokemon', async (req, res) => {
   try {
     const teamId = req.params.teamId;
-    const pokemonName = req.body.pokemonName; 
-    
+    const pokemonName = req.body.pokemonName;
+
     const team = await Team.findByPk(teamId, {
-      include: [Pokemon], 
+      include: [Pokemon],
     });
 
     if (!team) {
@@ -60,7 +59,6 @@ router.post('/teams/:teamId/pokemon', async (req, res) => {
   }
 });
 
-// Remove a Pokemon from a team
 router.delete('/teams/:teamId/pokemon/:pokemonId', async (req, res) => {
   try {
     const { teamId, pokemonId } = req.params;
@@ -76,7 +74,6 @@ router.delete('/teams/:teamId/pokemon/:pokemonId', async (req, res) => {
   }
 });
 
-// Delete a team
 router.delete('/teams/:teamId', async (req, res) => {
   try {
     const { teamId } = req.params;
