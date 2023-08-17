@@ -1,7 +1,5 @@
 const router = require('express').Router();
 const { Team, Pokemon } = require('../../models');
-const path = require('path');
-const fs = require('fs');
 
 
 // Route to render team-page.html and display teams
@@ -12,14 +10,9 @@ router.get('/teams', async (req, res) => {
       include: [{ model: Pokemon }],
     });
 
-    const filePath = path.join(__dirname, '../../public/team-page.html');
-    const htmlContent = fs.readFileSync(filePath, 'utf-8');
-    
-    const teamsDataScript = `<script>window.teamsData = ${JSON.stringify(teams)};</script>`;
-    const modifiedHtml = htmlContent.replace('</body>', `${teamsDataScript}</body>`);
-
-    res.send(modifiedHtml);
+    res.render('team-page', { teamsData: teams }); 
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -33,6 +26,7 @@ router.post('/teams', async (req, res) => {
 
     res.status(201).json(newTeam);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -60,9 +54,9 @@ router.post('/teams/:teamId/pokemon', async (req, res) => {
       pokemon_name: pokemonName,
     });
 
-    res.status(201).json(newPokemon);
+    res.status(201).send('Pokémon added to the team successfully.');
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).send('An error occurred.');
   }
 });
 
@@ -77,6 +71,7 @@ router.delete('/teams/:teamId/pokemon/:pokemonId', async (req, res) => {
 
     res.status(204).end();
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -92,6 +87,7 @@ router.delete('/teams/:teamId', async (req, res) => {
 
     res.status(204).end();
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

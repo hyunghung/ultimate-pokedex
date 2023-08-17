@@ -1,5 +1,3 @@
-import Pokemon from '../models/Pokemon';
-
 document.addEventListener('DOMContentLoaded', async () => {
   const teamsData = window.teamsData || [];
 
@@ -67,38 +65,46 @@ document.addEventListener('DOMContentLoaded', async () => {
   boxes.forEach(box => {
     box.addEventListener('click', () => {
       const teamIndex = parseInt(box.dataset.index, 10);
+      console.log('Clicked on team index:', teamIndex);
+      currentTeamIndex = teamIndex; // Set the current team index
       populateTeamMembers(teamIndex);
     });
   });
 
-  const addPokemonBtn = document.querySelector('#add-pokemon-btn');
-  let currentTeamIndex = 0;
+let currentTeamIndex = 1; // Define and initialize currentTeamIndex here
 
-  addPokemonBtn.addEventListener('click', async () => {
-    const selectedPokemonName = document.querySelector('#pokemon-select').value;
-    
-    try {
-      const selectedPokemon = await Pokemon.findOne({
-        where: {
-          pokemon_name: selectedPokemonName,
-          team_id: teamsData[currentTeamIndex].id,
-        },
-      });
-      
-      if (selectedPokemon) {
-        console.log('This Pokémon is already in the team.');
-        return;
-      }
-  
-      await Pokemon.create({
-        team_id: teamsData[currentTeamIndex].id,
-        pokemon_name: selectedPokemonName,
-      });
-  
-      console.log('Pokémon added to the team successfully.');
-      populateTeamMembers(currentTeamIndex);
-    } catch (error) {
-      console.error('An error occurred:', error);
+const addPokemonBtn = document.querySelector('#add-pokemon-btn');
+addPokemonBtn.addEventListener('click', async () => {
+  const selectedPokemonName = document.querySelector('#pokemon-select').value;
+  try {
+    const currentTeam = teamsData[currentTeamIndex];
+
+    if (!currentTeam) {
+      console.log('Invalid team index.');
+      return;
     }
-  });
+
+    const selectedPokemon = await Pokemon.findOne({
+      where: {
+        pokemon_name: selectedPokemonName,
+        team_id: currentTeam.id,
+      },
+    });
+
+    if (selectedPokemon) {
+      console.log('This Pokémon is already in the team.');
+      return;
+    }
+
+    await Pokemon.create({
+      team_id: currentTeam.id,
+      pokemon_name: selectedPokemonName,
+    });
+
+    console.log('Pokémon added to the team successfully.');
+    populateTeamMembers(currentTeamIndex);
+  } catch (error) {
+    console.error('An error occurred:', error);
+  }
+});
 });

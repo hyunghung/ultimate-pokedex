@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Teams</title>
+  <link rel="stylesheet" href="/css/team-page.css">
+</head>
+<body>
+<div class="box-list">
+  {{#each teamsData}}
+    <div class="box" data-index="{{@key}}">Team {{@key}}</div>
+  {{/each}}
+</div>
+  
+  <select id="pokemon-select"></select>
+  <div class="icon-group"></div>
+  <div class="icon-group2"></div>
+  <button id="add-pokemon-btn">Add Pokemon</button>
+    <script>
+    const teamsData = {{json teamsData}};
+  </script>
+  <script src="/js/team-page.js"></script>
+</body>
+</html>
+

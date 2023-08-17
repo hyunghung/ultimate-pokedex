@@ -1,6 +1,6 @@
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
-let pokemonName = params.name.replace(/_/g, '-'); 
+let pokemonName = params.name.replace(/_/g, '-');
 
 fetchPokemonDetails(pokemonName);
 
@@ -8,8 +8,8 @@ async function fetchPokemonDetails(pokemonName) {
   try {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
     const data = await response.json();
-    const pokemonId = data.id; 
-    displayPokemonStats(data, pokemonId); 
+    const pokemonId = data.id;
+    displayPokemonStats(data, pokemonId);
   } catch (error) {
     console.error('Error fetching Pokémon details:', error);
   }
